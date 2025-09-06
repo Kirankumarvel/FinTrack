@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Export Data</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">CSV Export</h5>
+                                <p class="card-text">Export your transactions as a CSV file that can be opened in Excel or any spreadsheet application.</p>
+                                
+                                <form method="GET" action="{{ url_for('export_csv') }}">
+                                    <div class="mb-3">
+                                        <label for="csv_days" class="form-label">Export data from last:</label>
+                                        <select class="form-select" id="csv_days" name="days">
+                                            <option value="7">7 days</option>
+                                            <option value="30" selected>30 days</option>
+                                            <option value="90">90 days</option>
+                                            <option value="180">6 months</option>
+                                            <option value="365">1 year</option>
+                                            <option value="0">All time</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Download CSV</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">PDF Export</h5>
+                                <p class="card-text">Export your transactions as a formatted PDF report with summary information.</p>
+                                
+                                <form method="GET" action="{{ url_for('export_pdf') }}">
+                                    <div class="mb-3">
+                                        <label for="pdf_days" class="form-label">Export data from last:</label>
+                                        <select class="form-select" id="pdf_days" name="days">
+                                            <option value="7">7 days</option>
+                                            <option value="30" selected>30 days</option>
+                                            <option value="90">90 days</option>
+                                            <option value="180">6 months</option>
+                                            <option value="365">1 year</option>
+                                            <option value="0">All time</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Download PDF</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info mt-4">
+                    <h6>Note:</h6>
+                    <ul class="mb-0">
+                        <li>CSV files are best for data analysis in spreadsheet applications</li>
+                        <li>PDF files provide a formatted report suitable for printing</li>
+                        <li>Select "All time" to export your complete transaction history</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

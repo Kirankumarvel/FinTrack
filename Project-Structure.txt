@@ -1,0 +1,25 @@
+FinTrack/
+├── app.py
+├── config.py
+├── requirements.txt
+├── instance/
+│   └── database.db
+├── models.py
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── add_transaction.html
+│   ├── transactions.html
+│   ├── analytics.html
+│   └── export.html
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+└── utils/
+    ├── analytics.py
+    └── export.py
